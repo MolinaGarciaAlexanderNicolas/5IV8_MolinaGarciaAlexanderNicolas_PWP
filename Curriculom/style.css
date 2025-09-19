@@ -1,14 +1,18 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
 body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f4f4f4;
     color: #333;
-    line-height: 1.6;
+    line-height: 2;
     margin: 0;
     padding: 0;
 }
 
 .contenedor-principal{
-    max-width: 900px;
     margin: 20px;
     background-color: #fff;
     border-radius: 8px;
@@ -33,11 +37,10 @@ header{
     color: #ecf0f1;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease;
 }
 
 .cuerpo-del-contenedor {
-    padding: 2rem 3rem;
+    padding: 2rem;
 }
 
 .experiencia {
@@ -63,4 +66,4 @@ footer {
     text-align: center;
     padding: 1rem;
     font-size: 0.9rem;
-}
+} 
