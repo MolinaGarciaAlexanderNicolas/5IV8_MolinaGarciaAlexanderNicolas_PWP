@@ -7,7 +7,7 @@ body{
 }
 
 .main-cont{
-    border: 7px;
+    border: 7px solid black;
     border-radius: 50px;
     margin: 2rem;
 
@@ -24,7 +24,6 @@ body{
 }
 
 table{
-    width: 100%;
     border-collapse: collapse;
     border: 2px solid black;
     border-radius: 4px;
@@ -38,6 +37,7 @@ th, td{
 
 .cont-table{
     background-color: blueviolet;
+    color: white;
 }
 
 .cont-body{
@@ -49,4 +49,9 @@ td a{
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
+}
+
+td a:hover{
+    color: darkblue;
+    text-decoration: underline;
 }
