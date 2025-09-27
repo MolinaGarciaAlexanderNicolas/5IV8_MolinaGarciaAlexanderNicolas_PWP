@@ -28,12 +28,13 @@ table{
     width: 100%;
     border-collapse: collapse;
     border: 2px solid black;
+    border-radius: 4px;
 }
 
 th, td{
     padding: 10px;
     text-align: center;
-    border: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .cont-table{
@@ -42,4 +43,12 @@ th, td{
 
 .cont-body{
     background-color: maroon;
+    padding: 10px;
+}
+
+td a{
+    color: blue;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
