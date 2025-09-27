@@ -15,6 +15,7 @@ body{
 
 .cont-header{
     color: black;
+    background-color: aqua;
 }
 
 .audiowide-regular {
@@ -35,4 +36,8 @@ th, td{
     padding: 10px;
     text-align: center;
     border: 1px solid black;
+}
+
+.cont-table{
+    background-color: blueviolet;
 }
