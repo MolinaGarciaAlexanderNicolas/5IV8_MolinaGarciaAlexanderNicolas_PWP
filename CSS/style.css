@@ -16,7 +16,7 @@ body{
 }
 
 .cont-header{
-    color: black;
+    color: #FFFF33;
 }
 
 .audiowide-regular {
@@ -74,4 +74,3 @@ a{
 a:hover{
     color: #FFFF33;
 }
-
