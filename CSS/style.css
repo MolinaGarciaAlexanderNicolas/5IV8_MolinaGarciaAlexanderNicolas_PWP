@@ -7,9 +7,11 @@ body{
 }
 
 .main-cont{
-    border: 7px solid black;
-    border-radius: 50px;
-    margin: 2rem;
+    border: 2px solid #FF00FF;
+    border-radius: 20px;
+    margin: 1rem;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #FFFFFF;
 
 }
 
@@ -25,14 +27,21 @@ body{
 
 table{
     border-collapse: collapse;
-    border: 2px solid black;
-    border-radius: 4px;
+    border: 2px solid #00FFFF;
+    width: 100%;
+    color: #FFFFFF;
+    background-color: rgba(0, 0, 0, 0.75);
 }
 
 th, td{
     padding: 10px;
     text-align: center;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #39ff14;
+}
+
+th{
+    background-color: #FF00FF;
+    color: #000;
 }
 
 .cont-table{
@@ -55,3 +64,14 @@ td a:hover{
     color: darkblue;
     text-decoration: underline;
 }
+
+a{
+    color: #00FFFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover{
+    color: #FFFF33;
+}
+
