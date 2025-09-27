@@ -4,9 +4,6 @@
 body, html{
     background-color: aquamarine;
     font-family: 'Courier New', Courier, monospace;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: blueviolet;
     margin: 0;
     padding: 0;
