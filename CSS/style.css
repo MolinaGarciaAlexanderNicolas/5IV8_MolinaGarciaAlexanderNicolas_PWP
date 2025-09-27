@@ -4,6 +4,7 @@
 
 body{
     background-image: url(../imagenes/fonde.jpg);
+    font-family: "Audiowide", sans-serif;
 }
 
 .main-cont{
@@ -54,14 +55,14 @@ th{
 }
 
 td a{
-    color: blue;
+    color: #00FFFF;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 td a:hover{
-    color: darkblue;
+    color: #FFFF33;
     text-decoration: underline;
 }
 
