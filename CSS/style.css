@@ -1,12 +1,16 @@
 *{
     font-size: 20px;
 }
-body, html{
-    background-color: aquamarine;
-    font-family: 'Courier New', Courier, monospace;
-    color: blueviolet;
-    margin: 0;
-    padding: 0;
+
+.main-cont{
+    border: 7px;
+    border-radius: 50px;
+    margin: 2rem;
+
+}
+
+.cont-header{
+    color: black;
 }
 
 .audiowide-regular {
@@ -15,9 +19,7 @@ body, html{
   font-style: normal;
 }
 
-header{
-    color: yellowgreen;
-}
+
 
 table{
     width: 100%;
