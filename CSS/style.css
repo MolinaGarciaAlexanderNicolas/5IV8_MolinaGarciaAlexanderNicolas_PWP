@@ -24,8 +24,6 @@ body{
   font-style: normal;
 }
 
-
-
 table{
     width: 100%;
     border-collapse: collapse;
@@ -40,4 +38,8 @@ th, td{
 
 .cont-table{
     background-color: blueviolet;
+}
+
+.cont-body{
+    background-color: maroon;
 }
