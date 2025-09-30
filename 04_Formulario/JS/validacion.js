@@ -12,7 +12,7 @@
     //quiero validar que el campo nombre acepte mas de tres caracteres
     if(index.nombre.value.length < 4){
         alert("Por Favor escribe mas de tres caracteres en campo nombre");
-        formulario.nombre.focus();
+        index.nombre.focus();
         return false;
     }
 
@@ -73,6 +73,8 @@
 
     if(index.edad.value>99){
         alert("Ingrese una edad valida");
+        index.edad.focus();
+        return false;
     }
 
 
