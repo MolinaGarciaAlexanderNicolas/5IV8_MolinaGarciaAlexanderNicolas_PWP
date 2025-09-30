@@ -79,5 +79,5 @@
     var txt = index.correo.value;
 
     alert("Email " + (b.test(txt)? " ": " no ") + "valido");
-    return b.test;
+    return b.test(txt);
  }
