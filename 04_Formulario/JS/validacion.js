@@ -44,7 +44,7 @@
     }
 
 
-
+    //edad
     var checkStr = index.edad.value
 
 
@@ -71,13 +71,17 @@
         return false;
     }
 
+    if(index.edad.value>99){
+        alert("Ingrese una edad valida");
+    }
+
 
     //vamos a crear un funcion de una expresion regular para validar el correr
 
-    var b = /^[^@\s]+[^@\.\s]+(\.[^@\.\s]+)+$/;
+    var b = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
     var txt = index.correo.value;
 
     alert("Email " + (b.test(txt)? " ": " no ") + "valido");
-    return b.test;
+    return b.test(txt);
  }
