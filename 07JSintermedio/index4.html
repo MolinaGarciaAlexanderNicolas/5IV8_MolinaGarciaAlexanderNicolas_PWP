@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema 4</title>
+    <link rel="stylesheet" href="./CSS/style2.css">
+</head>
+<body>
+    <h2>Utilidad de un trabajador</h2>
+
+    <div class="cont">
+        <div class="cont-prin">
+            <input type="text" name="salario" id="salario" class="cont-allbody" onkeypress="return validarn(event)" placeholder="Ingresa tu salario mensual">
+            <br><br>
+            <input type="text" name="antiguedad" id="antiguedad" class="cont-allbody" onkeypress="return validarn(event)" placeholder="Ingresa tu antigüedad en años">
+            <br><br>
+            <button type="button" class="button" onclick="calcularUtilidad()">Calcular utilidad</button>
+            <br><br>
+            <input type="text" name="utilidad" id="utilidad" readonly="readonly" class="cont-input" placeholder="Utilidad total">
+        </div>
+    </div>
+    <script src="./JS/funcion4.js"></script>
+    <a href="./index.html">Regresar</a>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema 3</title>
+    <link rel="stylesheet" href="./CSS/style2.css">
+</head>
+<body>
+    <h2>Horas extras</h2>
+
+    <div class="cont">
+        <div class="cont-prin">
+            <input type="text" name="nohoras" id="nohoras" class="cont-allbody" onkeypress="return validarn(event)" placeholder="Ingresa el numero de horas trabajadas durante la semana">
+            <br>
+            <br>
+            <input type="text" name="pagohora" id="pagohora" class="cont-allbody" onkeypress="return validarn(event)" placeholder="Ingresa el pago por hora">
+            <br>
+            <br>
+            <button type="button" class="button " onclick="horasextras()">Calcular horas extras</button>
+            <br>
+            <br>
+            <input type="text" name="hre" id="hre" readonly="readonly" class="cont-input">
+        </div>
+    </div>
+    <script src="./JS/funcion3.js"></script>
+    <a href="./index.html">Regresar</a>
+</body>
+</html>
