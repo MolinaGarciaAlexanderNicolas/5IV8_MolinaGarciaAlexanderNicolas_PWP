@@ -70,13 +70,13 @@ function mostrarCartelGanador(){
     poscion[][] = arreglo[][]
 */
 
-function intercambiarPosicionesRompe(filaPos1, columnaPos1, filaPos2, columaPos2){
-    var pos1 = rompe[filaPos1, columnaPos1];
-    var pos2 = rompe[filaPos2, columaPos2];
+function intercambiarPosicionesRompecabezas(filaPos1, columnaPos1, filaPos2, columaPos2){
+    var pos1 = rompe[filaPos1][columnaPos1];
+    var pos2 = rompe[filaPos2][columaPos2];
 
     //intercambio
-    rompe[filaPos1, columnaPos1] = pos2;
-    rompe[filaPos2, columaPos2] = pos1;
+    rompe[filaPos1][columnaPos1] = pos2;
+    rompe[filaPos2][columaPos2] = pos1;
 }
 
 //que se encargue de saber donde esta la pieza vacia
@@ -128,15 +128,18 @@ function moverEnDireccion(direccion){
         //tengo que guardar el ultimo movimiento
         agregarUltimoMovimiento(direccion);
     }
+    else{
+        return true;
+    }
 
 }
 
 function intercambiarPosiciones(fila1, columna1, fila2, columa2){
-    var pieza1 = rompe[fila1, columna1];
-    var pieza2 = rompe[fila2, columa2];
+    var pieza1 = rompe[fila1][columna1];
+    var pieza2 = rompe[fila2][columa2];
 
     //intercambio ya debe de ser por parte de los frames y el html
-    intercambiarPosicionesRompe(fila1, columna1, fila2, columa2);
+    intercambiarPosicionesRompecabezas(fila1, columna1, fila2, columa2);
     //para el html
     intercambiarPoscionesDOM('pieza'+pieza1, 'pieza'+pieza2);
     
@@ -145,17 +148,17 @@ function intercambiarPosiciones(fila1, columna1, fila2, columa2){
 function intercambiarPoscionesDOM(idPieza1, idPieza2){
     var pieza1 = document.getElementById(idPieza1);
     var pieza2 = document.getElementById(idPieza2);
-
-    //vamos a clonarlas
-    var padre = elementoPieza1.parentNode;
-
-    //lo clono
-    var clonElemento1 = elementoPieza1.cloneNode(true);
-    var clonElemento2 = elementoPieza2.cloneNode(true);
-
-    //reemplazar a los padre con sus clones
-    padre.replaceChild(clonElemento1, elementoPieza2);
-    padre.replaceChild(clonElemento2, elementoPieza1);
+    
+    if (!pieza1 || !pieza2) return;
+    
+    var padre = pieza1.parentNode;
+    
+    var temp1 = document.createComment('temp1');
+    var temp2 = document.createComment('temp2');
+    
+    padre.replaceChild(temp1, pieza1);
+    padre.replaceChild(pieza1, pieza2);
+    padre.replaceChild(pieza2, temp1);
 }
 
 //debo de actualizar los movimientos en el DOM
@@ -188,11 +191,15 @@ function mezclarPiezas(veces){
 
     var direccion = direcciones[Math.floor(Math.random() * direcciones.length)];
 
-    moverEnDireccion(direccion);
+    var movido = moverEnDireccion(direccion);
 
     setTimeout(function(){
-        mezclarPiezas(veces - 1);
-    }, 100);
+    if(movido){
+      mezclarPiezas(veces - 1)
+    }else{
+      mezclarPiezas(veces)
+    }
+  }, 100);
 }
 
 //necesitamos saber que teclas se estan oprimiendo
@@ -205,12 +212,16 @@ function capturarTeclas(){
             if(gano){
                 setTimeout(function(){
                     mostrarCartelGanador();
-                }
-                ,500);
+                },500);
             }
             evento.preventDefault();
         }
     });
+}
+
+function agregarUltimoMovimiento(direccion) {
+  actualizarUltimoMovimiento(direccion);
+  movimientos.push(direccion);
 }
 
 function iniciar(){
