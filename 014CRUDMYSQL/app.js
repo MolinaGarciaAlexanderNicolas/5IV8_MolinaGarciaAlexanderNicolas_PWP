@@ -52,10 +52,16 @@ app.get('/', (req, res) => {
 });
 
 app.post('/estudiantes', (req, res) => {
-  const { nombre, edad, curso } = req.body;
-  bd.query(`INSERT INTO estudiantes (nombre, edad, curso) VALUES (${nombre}, ${edad}, ${curso})`, (error, results) => {
-    error ? console.log(error) : res.redirect('/');
-  });
+    //obtener los parametros del formulario
+    const { nombre, edad, carrera } = req.body;
+    const querry = `INSERT INTO estudiantes (nombre, edad, carrera) VALUES ('${nombre}', ${edad}, '${carrera}')";`;
+    bd.query(querry, (error, resultados) => {
+        if (error) {
+            console.log('Error al crear el estudiante: ' + error);
+            res.status(500).send('Error al crear el estudiante');
+        }
+        res.redirect('/');
+    });
 });
 
 app.listen(port, () =>{
