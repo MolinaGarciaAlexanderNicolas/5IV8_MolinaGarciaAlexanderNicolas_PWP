@@ -1,0 +1,136 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eef1f6; 
+    color: #34495e;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+h1 {
+    color: #2c3e50; 
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #3498db; 
+    font-weight: 300; 
+}
+
+form {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    width: 100%;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: 100px 1fr; 
+    gap: 20px;
+    align-items: center;
+}
+
+.label {
+    font-weight: 600;
+    color: #555;
+    text-align: right;
+    padding-right: 15px;
+}
+
+.unput {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    box-sizing: border-box; 
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-size: 1em;
+}
+
+.unput:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    outline: none;
+}
+
+.btn {
+    grid-column: 1 / 3; 
+    background-color: #2ecc71; 
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.05em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.1s;
+}
+
+.btn:hover {
+    background-color: #27ae60;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+ul {
+    list-style-type: none; 
+    padding: 0;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+li {
+    background: #ffffff;
+    border-left: 5px solid #3498db; 
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+li:hover {
+    background-color: #f8fcfd;
+}
+
+li strong {
+    color: #2c3e50;
+    font-size: 1.1em;
+    margin-right: 15px;
+}
+
+li a {
+    text-decoration: none;
+    color: white;
+    padding: 7px 12px;
+    border-radius: 4px;
+    margin-left: 8px;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: opacity 0.3s, background-color 0.3s;
+}
+
+li a[href*="edit"] {
+    background-color: #f39c12; 
+}
+
+li a[href*="edit"]:hover {
+    background-color: #e67e22;
+}
+
+li a[href*="delete"] {
+    background-color: #e74c3c; 
+}
+
+li a[href*="delete"]:hover {
+    background-color: #c0392b;
+}
