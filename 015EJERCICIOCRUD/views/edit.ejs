@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Editar Registro</h1>
+
+    <form action="/update/<%= equipo.id %>" method="POST">
+
+    <label for="id_equipo" class="label">ID Equipo:</label>
+    <input type="text" id="id_equipo" name="id_equipo" class="input"
+        value="<%= equipo.id_equipo %>" required>
+
+    <label for="fecha_programada" class="label">Fecha Programada:</label>
+    <input type="datetime-local" id="fecha_programada" name="fecha_programada" class="input"
+        value="<%= equipo.fecha_programada.toISOString().slice(0,16) %>" required>
+
+    <label for="fecha_ejecucion" class="label">Fecha Ejecución:</label>
+    <input type="datetime-local" id="fecha_ejecucion" name="fecha_ejecucion" class="input"
+        value="<%= equipo.fecha_ejecucion ? equipo.fecha_ejecucion.toISOString().slice(0,16) : '' %>">
+
+    <label for="tarea_realizada" class="label">Tarea Realizada:</label>
+    <textarea id="tarea_realizada" name="tarea_realizada" class="input" required><%= equipo.tarea_realizada %></textarea>
+
+    <label for="tecnico_responsable" class="label">Técnico:</label>
+    <input type="text" id="tecnico_responsable" name="tecnico_responsable" class="input"
+        value="<%= equipo.tecnico_responsable %>" required>
+
+    <label for="horas_ciclos" class="label">Horas/Ciclos:</label>
+    <input type="number" id="horas_ciclos" name="horas_ciclos" class="input"
+        value="<%= equipo.horas_ciclos %>" required>
+
+    <label for="estado_despues" class="label">Estado:</label>
+    <input type="text" id="estado_despues" name="estado_despues" class="input"
+        value="<%= equipo.estado_despues %>" required>
+
+    <button type="submit" class="btn">Actualizar</button>
+    </form>
+</body>
+</html>

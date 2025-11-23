@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Nuevo Registro</h1>
+
+    <form action="/save" method="POST">
+
+        <label for="id_equipo" class="label">ID Equipo:</label>
+        <input type="text" id="id_equipo" name="id_equipo" class="input" required>
+
+        <label for="fecha_programada" class="label">Fecha Programada:</label>
+        <input type="datetime-local" id="fecha_programada" name="fecha_programada" class="input" required>
+
+        <label for="fecha_ejecucion" class="label">Fecha Ejecución:</label>
+        <input type="datetime-local" id="fecha_ejecucion" name="fecha_ejecucion" class="input">
+
+        <label for="tarea_realizada" class="label">Tarea Realizada:</label>
+        <textarea id="tarea_realizada" name="tarea_realizada" class="input" required></textarea>
+
+        <label for="tecnico_responsable" class="label">Técnico:</label>
+        <input type="text" id="tecnico_responsable" name="tecnico_responsable" class="input" required>
+
+        <label for="horas_ciclos" class="label">Horas/Ciclos:</label>
+        <input type="number" id="horas_ciclos" name="horas_ciclos" class="input" required>
+
+        <label for="estado_despues" class="label">Estado:</label>
+        <input type="text" id="estado_despues" name="estado_despues" class="input" required>
+
+        <button type="submit" class="btn">Guardar</button>
+
+    </form>
+
+    <ul>
+    <% equipos.forEach(function(e){ %>
+        <li>
+            <strong>ID Equipo: <%= e.id_equipo %></strong>
+            (Programada: <%= e.fecha_programada %>, 
+            Ejecución: <%= e.fecha_ejecucion %>, 
+            Tarea: <%= e.tarea_realizada %>, 
+            Técnico: <%= e.tecnico_responsable %>, 
+            Horas/Ciclos: <%= e.horas_ciclos %>, 
+            Estado: <%= e.estado_despues %>)
+            
+            <a href="/edit/<%= e.id %>">Editar</a>
+            <a href="/delete/<%= e.id %>">Eliminar</a>
+        </li>
+    <% }); %>
+    </ul>
+</body>
+</html>
