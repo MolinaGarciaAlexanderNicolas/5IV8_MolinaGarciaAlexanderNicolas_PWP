@@ -20,9 +20,14 @@ const db = mysql.createConnection({
 });
 
 app.get("/", (req, res) => {
-    db.query("SELECT * FROM equipos", (err, results) => {
-        if (err) throw err;
-        res.render("index", { equipos: results });
+    const query = "SELECT * FROM equipos";
+
+    db.query(query, (error, resultados) => {
+        if (error) {
+            console.log("Error al obtener los equipos: " + error);
+            return res.status(500).send("Error al obtener los equipos");
+        }
+        res.render("index", { equipos: resultados });
     });
 });
 
@@ -32,29 +37,55 @@ app.get("/create", (req, res) => {
 
 app.post("/save", (req, res) => {
     const data = req.body;
-    db.query("INSERT INTO equipos SET ?", data, (err) => {
-        if (err) throw err;
+
+    const query = "INSERT INTO equipos SET ?";
+
+    db.query(query, data, (error) => {
+        if (error) {
+            console.log("Error al crear el equipo: " + error);
+            return res.status(500).send("Error al crear el equipo");
+        }
         res.redirect("/");
     });
 });
 
 app.get("/edit/:id", (req, res) => {
-    db.query("SELECT * FROM equipos WHERE id = ?", [req.params.id], (err, result) => {
-        if (err) throw err;
-        res.render("edit", { equipo: result[0] });
+    const equipoid = req.params.id;
+    const query = "SELECT * FROM equipos WHERE id = ?";
+
+    db.query(query, [equipoid], (error, resultados) => {
+        if (error) {
+            console.log("Error al obtener el equipo: " + error);
+            return res.status(500).send("Error al obtener el equipo");
+        }
+        res.render("edit", { equipo: resultados[0] });
     });
 });
 
 app.post("/update/:id", (req, res) => {
-    db.query("UPDATE equipos SET ? WHERE id = ?", [req.body, req.params.id], (err) => {
-        if (err) throw err;
+    const equipoid = req.params.id;
+    const data = req.body;
+
+    const query = "UPDATE equipos SET ? WHERE id = ?";
+
+    db.query(query, [data, equipoid], (error) => {
+        if (error) {
+            console.log("Error al actualizar el equipo: " + error);
+            return res.status(500).send("Error al actualizar el equipo");
+        }
         res.redirect("/");
     });
 });
 
 app.get("/delete/:id", (req, res) => {
-    db.query("DELETE FROM equipos WHERE id = ?", [req.params.id], (err) => {
-        if (err) throw err;
+    const equipoid = req.params.id;
+    const query = "DELETE FROM equipos WHERE id = ?";
+
+    db.query(query, [equipoid], (error) => {
+        if (error) {
+            console.log("Error al eliminar el equipo: " + error);
+            return res.status(500).send("Error al eliminar el equipo");
+        }
         res.redirect("/");
     });
 });
