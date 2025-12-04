@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gato Grande</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <h1>Gato dentro de Gato</h1>
+
+    <form action="/create" method="POST">
+        <button>Crear nueva partida</button>
+    </form>
+
+    <h2>Partidas guardadas</h2>
+    <ul>
+        <% partidas.forEach(p => { %>
+            <li>
+                Partida <%= p.id %> -
+                Turno: <%= p.turn %> -
+                Ganador: <%= p.winner || "Ninguno" %>
+                
+                <a href="/delete/<%= p.id %>" style="color:red">Eliminar</a>
+            </li>
+        <% }) %>
+    </ul>
+
+    <div id="bigBoard" class="big-board"></div>
+
+    <script src="/game.js"></script>
+</body>
+</html>
